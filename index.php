@@ -6,7 +6,7 @@ echo date("Y-m-d H:i:s");// 2017-07-05
 session_start();
 
 // Create connection
-$conn = new mysqli("localhost", "root", "", "eshop");
+$conn = new mysqli("localhost", "MindaugasSimkus", "agrastaspower", "mindaugassimkus");
 
 // Check connection
 if (!$conn) {
@@ -34,6 +34,7 @@ if ($product_sql !== '') {
 
 
 
+
 $product_table = "SELECT * FROM products";
 $result = mysqli_query($conn, $product_table);
 
@@ -47,6 +48,7 @@ if (mysqli_num_rows($result) > 0) {
 } else {
     echo "0 results";
 }
+mysqli_set_charset($conn, "utf8");
 
 mysqli_close($conn);
 
@@ -78,7 +80,7 @@ mysqli_close($conn);
 			<br>
 		</div>
 		<div class="row">
-			<div class="col-sm-4">
+			<div class="col-sm-4" style="background-color: lightyellow; padding: 5px">
 				<h4>Product form</h4>
 				<form action="" method="POST">
 						<div class="form-group">
@@ -102,7 +104,7 @@ mysqli_close($conn);
 					<h3>Product table:<br/></h3>
 					<?php 
 					echo $table_load_text;
-					echo "<table class='table-inverse text-center table-bordered'><tr><th>No.</th><th>Time</th><th>Email</th><th>Product</th><th>Brand</th><th>Price</th><th>Weigth</th><th>Description</th></tr>";
+					echo "<table class='table text-center table-bordered table-hover'><thead class='thead-inverse'><tr><th>No.</th><th>Time</th><th>Email</th><th>Product</th><th>Brand</th><th>Price</th><th>Weigth</th><th>Description</th></tr></thead>";
 					foreach ($from_db_products as $product_to_table) {
 						echo  "<tr><td>" . $product_to_table['id'] . "</td><td>" . $product_to_table['date'] . "</td><td>" . $product_to_table['email'] . "</td><td>" . $product_to_table['product'] . "</td><td>" . $product_to_table['brand'] . "</td><td>" . $product_to_table['price'] . "</td><td>" . $product_to_table['weigth'] . "</td><td>" . $product_to_table['description'] . "</td></tr>";
 					}
