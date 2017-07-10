@@ -84,7 +84,7 @@ mysqli_close($conn);
 			<div class="col-sm-8">
 					<h3>Product table:<br/></h3>
 					<?php 
-					echo "<table><tr><th>No.</th><th>Time</th><th>Email</th><th>Product</th><th>Brand</th><th>Price</th><th>Weigth</th><th>Description</th></tr><tr>";
+					echo "<table class='table'><tr><th>No.</th><th>Time</th><th>Email</th><th>Product</th><th>Brand</th><th>Price</th><th>Weigth</th><th>Description</th></tr><tr>";
 					foreach ($from_db_products as $product_to_table) {
 						echo  "<td>" . $product_to_table['id'] . "</td><td>" . $product_to_table['date'] . "</td><td>" . $product_to_table['email'] . "</td><td>" . $product_to_table['product'] . "</td><td>" . $product_to_table['brand'] . "</td><td>" . $product_to_table['price'] . "</td><td>" . $product_to_table['weigth'] . "</td><td>" . $product_to_table['description'] . "</td>";
 					}
