@@ -6,7 +6,7 @@ echo date("Y-m-d H:i:s");// 2017-07-05
 session_start();
 
 // Create connection
-$conn = new mysqli("localhost", "MindaugasSimkus", "agrastaspower", "mindaugassimkus");
+$conn = new mysqli("localhost", "root", "", "eshop");
 
 // Check connection
 if (!$conn) {
